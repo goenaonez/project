@@ -1,0 +1,2 @@
+"WebSocket"in window&&"jQuery"in window&&$(function(){
+	var n={server:"sayyac.canlitvizle.com",port:"443",online:$("#online"),ws:!1,init:function(){n.online.length>0&&(n.ws=new WebSocket("wss://"+n.server+":"+n.port+"/"+n.online.data("channel")+"?auth="+n.online.data("auth")),n.ws.onmessage=function(e){n.online.html(e.data)},n.ws.onclose=function(e){setTimeout(function(){n.init()},1e4)})}};n.init()});
